@@ -1,0 +1,19 @@
+{
+  "name": "web2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Star-xxy/Web2_Ass2.git"
+  },
+  "author": "Xinyan Xie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Star-xxy/Web2_Ass2/issues"
+  },
+  "homepage": "https://github.com/Star-xxy/Web2_Ass2#readme"
+}
