@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+// 设置静态文件目录
+app.use(express.static('client'));
 // 这是项目的根目录
 app.get('/', (req, res) => {
-  res.redirect('./client/index.html')
+  
   // res.send('Hello 1World!');
 });
 
