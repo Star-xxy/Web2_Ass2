@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
+// 这是项目的根目录
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.redirect('./client/index.html')
+  // res.send('Hello 1World!');
 });
 
 app.listen(port, () => {
@@ -73,7 +74,7 @@ app.get('/api/fundraisers/search', (req, res) => {
   });
 });
 
-//获取筹款活动的详细信息（按ID）
+//获取筹款活动的详细信息（按ID）这就是一个接口
 app.get('/api/fundraisers/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT F.*, C.NAME AS CATEGORY_NAME FROM FUNDRAISER F INNER JOIN CATEGORY C ON F.CATEGORY_ID = C.CATEGORY_ID WHERE F.FUNDRAISE_ID = ?';
@@ -83,3 +84,4 @@ app.get('/api/fundraisers/:id', (req, res) => {
     else res.status(404).send('Fundraiser not found');
   });
 });
+app.use(express.static('client'));

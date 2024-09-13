@@ -37,6 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     clearButton.addEventListener('click', function() {
-        document.querySelectorAll('#search-form input[type="text"], #search-form select').forEach(input => input.value = '');
+        searchForm.reset(); // 这将重置表单中的所有输入字段
     });
 });

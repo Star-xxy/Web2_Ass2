@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <p>Target Fund: ${fundraiser.TARGET_fund}</p>
             <p>Current Fund: ${fundraiser.CURRENT_fund}</p>
             <p>City: ${fundraiser.CITY}</p>
+            <p>Event:${fundraiser.EVENT}</P>
             <p>Status: ${fundraiser.IS_ACTIVE ? 'Active' : 'Suspended'}</p>
             <p>Category: ${fundraiser.CATEGORY_ID}</p> 
-            <a href="details.html?id=${fundraiser.FUNDRAISE_ID}">View Details</a>
+            <a href="details.html?id=${fundraiser.FUNDRAISER_ID}">View Details</a>
           `;
           fundraisersContainer.appendChild(fundraiserElement);
         });
