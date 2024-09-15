@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  fetch('http://localhost:3000/api/fundraisers/active') // 修改为你的API端点
+  fetch('http://localhost:3000/api/fundraisers/active') 
     .then(response => response.json())
     .then(data => {
       const fundraisersContainer = document.getElementById('active-fundraisers');

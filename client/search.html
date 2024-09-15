@@ -23,16 +23,42 @@
       </li>
     </ul>
   </nav>
-  <h1>Search for Fundraisers</h1>
-  <!-- 搜索表单 -->
-  <form id="search-form">
-    <input type="text" name="city" placeholder="City">
-    <input type="text" name="organizer" placeholder="Organizer">
-    <!-- 添加更多搜索字段 -->
-    <button type="submit">Search</button>
-  </form>
-  <button id="clear-button">Clear</button>
-  <div id="search-results"></div>
+
+  <div class="container bg-white p-3 rounded"></div>
+    <form id="search-form">
+      <div class="p-2 flex-grow-1 bd-highlight">
+      <h1>Search for Fundraisers</h1>
+      </div>
+      <hr>
+      <div>
+        <!--Instruction information-->
+        <label style="color:gray">Please select at least one check box as the search criteria.....</label>
+        <div class="d-flex bd-highlight">
+          <div class="p-2 flex-grow-1 bd-highlight">
+            <!--Three check boxes-->
+            <div class="text-start">
+              <label class="mr-3"><input type="checkbox" id="city-checkbox" onclick="toggleSearchFields()"> City</label>
+              <label class="mr-3"><input type="checkbox" id="organizer-checkbox" onclick="toggleSearchFields()"> Organizer</label>
+              <label class="mr-3"><input type="checkbox" id="category-checkbox" onclick="toggleSearchFields()"> Category</label>
+            </div>
+          </div>
+          <div class="m bd-highlight">
+            <!--Clear the check box button-->
+            <button class="btn btn-outline-danger btn-sm" type="button"
+              onclick="clearCheckboxes()">clearCheckboxes</button>
+          </div>
+        </div>
+        <br>
+        <!--The search input box/drop-down box is dynamically generated-->
+        <div id="search-fields-container" class="row"></div>
+      </div>
+     
+    </form>
+    <hr>
+    <div id="search-results" class="row row-cols-2 row-gap-4 mt-2">
+      <!-- The active fundraiser will load here dynamically via JavaScript -->
+    </div>
+  </div>
 
   <script src="search.js"></script>
 </body>
