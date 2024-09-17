@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark navbar-expand-lg  bg-dark">
+  <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
     <a class="navbar-brand" href="index.html">Crowdfunding Platform</a>
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -19,15 +19,15 @@
         <a class="nav-link" href="search.html">Search Fundraisers<span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="details.html">Details of fundraisers</a>
+        <a class="nav-link" href="details.html">Details of Fundraisers</a>
       </li>
     </ul>
   </nav>
 
-  <div class="container bg-white p-3 rounded"></div>
+  <div class="container bg-white p-3 rounded">
     <form id="search-form">
       <div class="p-2 flex-grow-1 bd-highlight">
-      <h1>Search for Fundraisers</h1>
+        <h1>Search for Fundraisers</h1>
       </div>
       <hr>
       <div>
@@ -41,10 +41,11 @@
               <label class="mr-3"><input type="checkbox" id="organizer-checkbox" onclick="toggleSearchFields()"> Organizer</label>
               <label class="mr-3"><input type="checkbox" id="category-checkbox" onclick="toggleSearchFields()"> Category</label>
             </div>
+            
           </div>
-          <div class="m bd-highlight">
+          <div class="m bd-highlight flex-grow-1">
             <!--Clear the check box button-->
-            <button class="btn btn-outline-danger btn-sm" type="button"
+            <button class="btn btn-outline-danger btn-sm"type="button"
               onclick="clearCheckboxes()">clearCheckboxes</button>
           </div>
         </div>

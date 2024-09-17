@@ -1,38 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const searchForm = document.getElementById('search-form'); // 假设你有一个ID为'search-form'的表单
-    const resultsDiv = document.getElementById('search-results'); // 用于显示结果的div
+document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form');
+    const resultsDiv = document.getElementById('search-results');
 
-    searchForm.addEventListener('submit', function(e) {
-        e.preventDefault();//Prevents default form submission behavior
+    searchForm.addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevents default form submission behavior
         const formData = new FormData(searchForm);
         const searchParams = new URLSearchParams();
 
-        //Iterate over the form data and construct the query parameters
+        // Iterate over the form data and construct the query parameters
         for (const pair of formData.entries()) {
             if (pair[1].trim() !== '') {
                 searchParams.append(pair[0], pair[1]);
             }
         }
 
-        //Check whether search conditions exist
-        if(searchParams.toString().trim() === '') {
+        // Check whether search conditions exist
+        if (searchParams.toString().trim() === '') {
             alert('Please select at least one search criterion.');
             return;
         }
 
         // Initiate a search request
         fetch(`http://localhost:3000/api/fundraisers/search?${searchParams}`)
-        .then(response => response.json())
-        .then(data => {
-            resultsDiv.innerHTML = ''; // Clear previous search results
-            if (data.length === 0) {
-                resultsDiv.innerHTML = '<p style="color: red;">No fundraisers are found.</p>';
-            } else {
-                //show the rusult of searching
-                data.forEach(fundraiser => {
-                    const div = document.createElement('div');
-                    div.innerHTML = `
-                     <div class="col">
+            .then(response => response.json())
+            .then(data => {
+                resultsDiv.innerHTML = ''; // Clear previous search results
+                if (data.length === 0) {
+                    resultsDiv.innerHTML = '<p style="color: red;font-weight:bold" class="p-2">No fundraisers are found.</p>';
+                } else {
+                    // Display search results
+                    data.forEach(fundraiser => {
+                        const div = document.createElement('div');
+                        // div.innerHTML = `<h2><a href="fundraiser.html?id=${fundraiser.FUNDRAISE_ID}">${fundraiser.CAPTION}</a></h2><p>Organizer: ${fundraiser.ORGANIZER}</p>`;
+                        div.innerHTML = `
+                        <div class="col">
                             <div class="card mb-3">
                             <div class="card-header">
                                 <h2>${fundraiser.CAPTION}</h2>
@@ -52,17 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                   `;
-                    resultsDiv.appendChild(div);
-                });
-            }
-        })
-        .catch(error => console.error('Error:', error));
+                        resultsDiv.appendChild(div);
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error));
     });
 
-   fetchAndDisplayFundraisers('http://localhost:3000/api/fundraisers/active');
-    });
+    fetchAndDisplayFundraisers('http://localhost:3000/api/fundraisers/active');
 
-    // Function: Dynamically add/remove search boxes according to check box status
+});
+
+// Function: Dynamically add/remove search boxes according to check box status
 function toggleSearchFields() {
     const container = document.getElementById('search-fields-container');
     const cityCheckbox = document.getElementById('city-checkbox');
@@ -129,7 +131,7 @@ function clearCheckboxes() {
         checkbox.checked = false;
     });
 
-    // Empty the container
+    // Empty container
     const container = document.getElementById('search-fields-container');
     container.innerHTML = '';
     fetchAndDisplayFundraisers('http://localhost:3000/api/fundraisers/active');
@@ -171,6 +173,10 @@ function fetchAndDisplayFundraisers(apiUrl) {
                 <div class="col">
                     <div class="card mb-3">
                     <div class="card-header">
+                    <div class="mt-2">
+                        <img src="./images/树.jpg" class="rounded-circle" width="30" height="30" alt="">
+                        <span class="ms-2">${fundraiser.ORGANIZER}</span>
+                    </div>
                         <h2>${fundraiser.CAPTION}</h2>
                     </div>
                     <div class="card-body">
@@ -193,5 +199,4 @@ function fetchAndDisplayFundraisers(apiUrl) {
         })
         .catch(error => console.error('Error fetching fundraisers:', error));
 }
-
 

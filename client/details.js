@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const detailsDiv = document.getElementById('fundraiser-details'); // 用于展示详情的div
+document.addEventListener('DOMContentLoaded', function () {
+    const detailsDiv = document.getElementById('fundraiser-details'); // div for displaying details
 
     const params = new URLSearchParams(window.location.search);
     const fundraiserId = params.get('id');
@@ -10,18 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     fetch(`http://localhost:3000/api/fundraisers/${fundraiserId}`)
-    .then(response => response.json())
-    .then(data => {
-        detailsDiv.innerHTML = `
-         <div class="container">
-         <div class="row row-cols-4">
-          <div class="col-10 ">
-          <h1>${data.CAPTION}</h1>
+        .then(response => response.json())
+        .then(data => {
+            detailsDiv.innerHTML = `
+        <div class="container">
+          <div class="row row-cols-4">
+            <div class="col-10 ">
+              <h1>${data.CAPTION}</h1>
+            </div>
+            <div class="col-8"></div>
+              <div class="col-2">
+              <img src="./images/树.jpg" class="rounded-circle" width="30" height="30" alt="">
+              <span class="ms-2">${data.ORGANIZER}</span>
+              </div>          
+            </div>
           </div>
-        </div>
         <hr>
         <div class="row row-cols-4">
-          <div class="col-6">
+          <div class="col-8">
           <p>${data.EVENT}</P>
             <hr>
             <div class="text-center">
@@ -43,10 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     
       </div>
-       `;
+        `;
         })
         .catch(error => {
             console.error('Error:', error);
             detailsDiv.innerHTML = '<p style="color: red;">Error loading fundraiser details.</p>';
-    });
+        });
 });

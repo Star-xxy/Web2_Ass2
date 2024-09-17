@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  fetch('http://localhost:3000/api/fundraisers/active') 
+  fetch('http://localhost:3000/api/fundraisers/active')
     .then(response => response.json())
     .then(data => {
       const fundraisersContainer = document.getElementById('active-fundraisers');
@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="col">
             <div class="card mb-3">
               <div class="card-header">
+              <div class="mt-2">
+                <img src="./images/树.jpg" class="rounded-circle" width="30" height="30" alt="">
+                <span class="ms-2">${fundraiser.ORGANIZER}</span>
+              </div>
                 <h2>${fundraiser.CAPTION}</h2>
               </div>
               <div class="card-body">
