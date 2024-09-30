@@ -5,37 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="./css/bootstrap.css">
 </head>
 
 <body>
-  <nav class="navbar navbar-dark navbar-expand-lg  bg-dark">
-    <a class="navbar-brand" href="index.html">Crowdfunding Platform</a>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home<span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="search.html">Search Fundraisers</a>
-      </li>
-    </ul>
-  </nav>
-
-  <main class="container bg-white p-3 rounded">
-
-    <div class="d-flex bd-highlight">
-      <div class="p-2 flex-grow-1 bd-highlight">
-        <h1>Welcome to Our Crowdfunding Platform</h1>
-      </div>
-      <div class="p-2 mt-5 bd-highlight">
-        <p>Contact: example@example.com</p>
-      </div>
-    </div>
+  <div style="width: 100%;">
+    <table border style="width: 100%;">
+      <tr>
+        <td><a style="text-decoration: none;" href="index.html">Crowdfunding Platform</a></td>
+        <td style="background-color: gainsboro;"><a style="text-decoration: none;" href="index.html">Home</a></td>
+        <td><a href="search.html">Search Fundraisers</a></td>
+        
+      </tr>
+    </table>
     <hr>
-    <p>Inspiring Stories...
-      <br>
-      One day, a donkey and a tiger had an argument. 
+    <table style="width: 100%;">
+      <tr>
+        <td colspan="3">
+          <h1>Welcome to Our Crowdfunding Platform</h1>
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+        <td>
+          <p>Contact: example@example.com</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <hr>
+  <p>Inspiring Stories...
+    <br>
+    One day, a donkey and a tiger had an argument. 
       The donkey said, "The grass is blue The tiger replied, "No, the grass is green They held their own opinions and refused to compromise, and the argument became increasingly heated. 
       Finally, the two decided to submit this issue to Judge Lion.
        They approached the lion and the donkey shouted loudly, "Your Honor, isn't the grass blue The lion replied, "If you really think so, grass is blue The donkey persisted and said, 
@@ -49,20 +50,18 @@
        Firstly, some people are simply unable to persuade, as they do not care about the truth or reality, but only focus on their beliefs and viewpoints to achieve victory. 
        They will do their best to defend themselves as right, arguing with such people is a waste of time. Secondly, once an argument begins, emotions inevitably overwhelm reason. When your determination to win or lose is high and you are determined to defeat the opponent, your intelligence will sharply decline.
 
-    </p>
-    <hr>
-    <div class="d-flex flex-row-reverse bd-highlight ">
-      <a href="search.html" class="btn btn-link" tabindex="-1" role="button">GO Search Fundraisers Page --></a>
-    </div>
-    <div id="active-fundraisers" class="row row-cols-2 row-gap-4 mt-2">
-      <!-- The active fundraiser will load here dynamically via JavaScript -->
-    </div>
-  </main>
+  </p>
+  <hr>
+  <div style="text-align: right;">
+    <a href="search.html">GO Search Fundraisers Page --></a>
+  </div>
+  <div style="width: 100%;" >
+    <table border  id="active-fundraisers" style="width: 100%;">
+        <!-- The active fundraiser will load here dynamically via JavaScript -->
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="./js/bootstrap.js"></script>
-  <script src="index.js"></script>
+    </table>
+  </div>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
